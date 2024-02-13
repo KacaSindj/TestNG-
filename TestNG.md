@@ -1,4 +1,5 @@
-# Naslov
-## Podnaslov
+# TestNG - mini tutorijal (Testing framework for next generations )
+## Uvod u TestNG
 
-**Bold tekst**
+TestNG je framework koji je namijenjen **Java** programskom jeziku, a rayvio ga je Cédric Beust.
+
