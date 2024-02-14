@@ -14,7 +14,7 @@ TestNG je open-source testing framework, koji je namijenjen **Java** programskom
 - Podržava tri dodatna nivoa, kao što su **@Before/After suite**, **@Before/AfterTest** i **Before/AfterGroup**
 - Koristi više Java i OO funkcija
 
-Koristeći TestNG, možemo da generišemo odgovarajući izvještaj i da lako saznamo koliko je test slučajeva prošlo, neuspješno ili prekočeno. Neuspjele test slučajeve možemo da izvršimo zasebno.
+Koristeći TestNG, možemo da generišemo odgovarajući izvještaj i da lako saznamo koliko je test slučajeva prošlo, neuspješno ili preskočeno. Neuspjele test slučajeve možemo da izvršimo zasebno.
 
 **Primjer:** Imamo 5 test slučajeva i jedna metoda je napisana za svaki od njih. (Pretpostavka da je program napisan koristeći glavnu metodu bez upotrebe TestNG.) Kada prvo pokrenemo program, uspješno se izvršavaju tri metode, a četvrta je neuspješna. Zatim, ispravimo greške prisutne u četvrtoj metodi i želimo da pokrenemo samo nju, jer se prve tri svakako izvršavaju uspješno. Sve ovo ne bi bilo moguće bez TestNG-a.
 
@@ -110,3 +110,8 @@ U ovom primjeru se poziva putem datoteke testng.xml. Kreiramo xml datoteku testn
   ===============================================
 
 ```
+## Pisanje testova
+
+- Prvo napisati biznis logiku vaših testova i ubaciti TestNG anotacije u kod
+- Dodati informacije o testovima (npr. ime klase, grupe koje želimo da pokrenemo itd.) u testng.xml ili build.xml fajlu
+- Kompletan primjer TestNG testiranja koristeći POJO (plain old Java object) klasu, Business logic klasu i test xml, koji će pokrenuti TestNG.
