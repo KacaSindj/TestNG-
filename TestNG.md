@@ -20,16 +20,18 @@ Koristeći TestNG, možemo da generišemo odgovarajući izvještaj i da lako saz
 
 - **Anotacije** - linije koda koje mogu da kontrolišu kako će se izvršiti metoda ispod njih. Uvijek im prethodi simbol **@**. Primjer:
 
+```java
 @Test(priority = 0)
 public void goToHomepage() {
     driver.get(baseUrl);
-    Assert.assertEquals(driver.getTitle(), "Welcome: Cédric Beust");
+    Assert.assertEquals(driver.getTitle(), "Welcome: Simon S");
 }
 
 @Test(priority = 1)
 public void logout() {
     driver.findElement(By.linkText("SIGN-OFF")).click();
-    Assert.assertEquals("Sign-on: Cédric Beust", driver.getTitle());
+    Assert.assertEquals("Sign-on: Simon S", driver.getTitle());
 }
+```
 
 Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvrši prije **logout()** metode, jer ima niži prioritet.
