@@ -259,13 +259,13 @@ Detalji gore navedenog fajla su:
 - Tag <test> predstavlja jedan test i može da sadrži jednu ili više TestNG klasa.
 - Tag <class> predstavlja TestNG klasu. To je Java klasa koja sadrži barem jednu TestNG anotaciju. Može da sadrži jednu ili više metoda za testiranje.
 
-Da bi kompajlirali klase za testiranje koristeći **'javac'**, koristimo komandu:
+Da bi kompajlirali klase za testiranje koristeći **`javac`**, koristimo komandu:
 
 ```java
 /work/testng/src$ javac EmployeeDetails.java EmpBusinessLogic.java TestEmployeeDetails.java
 ```
 
-Sada, pokrenemo TestNG pomoću sledeće komande, navodeći putanju do našeg **'testng.xml'** fajla:
+Sada, pokrenemo TestNG pomoću sledeće komande, navodeći putanju do našeg **`testng.xml`** fajla:
 
 ```java
 java org.testng.TestNG testng.xml
@@ -273,3 +273,61 @@ java org.testng.TestNG testng.xml
 Ako je sve urađeno ispravno, trebalo bi vidjeti rezultate testova u konzoli. Dodatno, TestNG kreira veoma lijep HTML izvještaj u folderu koji se zove test-output, koji se automatski kreira u trenutnom direktorijumu. Ako ga otvorimo i učitatamo index.html, vidjećemo stranicu sličnu onoj na slici ispod:
 
 ![Izvjestaj](izvjestaj.png)
+
+## Osnovne anotacije
+
+Anotacije su formalno dodate u Java jezik, a TestNG je izabrao da koristi anotacije za označavanje test klasa. Lista anotacija koje TestNG podržava:
+
+1. **`@BeforeSuite`**
+- Anotirana metoda će se izvršiti samo jednom prije nego što se izvrše svi testovi u ovom setu.
+2. **`@AfterSuite`**
+- Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
+3. **`@BeforeClass`**
+- Anotirana metoda će se izvršiti samo jednom prije nego što se prva test metoda u trenutnoj klasi pozove.
+4. **`@AfterClass`**
+- Anotirana metoda će se izvršiti samo jednom nakon što se sve test metode u trenutnoj klasi izvrše.
+5. **`@BeforeTest`**
+- Anotirana metoda će se izvršiti prije nego što se izvrši bilo koja test metoda koja pripada klasama unutar taga **`<test>`**.
+- Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
+6. **`@AfterTest`**
+- Anotirana metoda će se izvršiti nakon što se sve test metode koje pripadaju klasama unutar taga `**<test>**` izvrše.
+7. **`@BeforeGroups`**
+- Lista grupa koje će ovaj metod konfiguracije pokrenuti ranije. Ovaj metod će se garantovano izvršiti neposredno prije prvog poziva test metode koja pripada bilo kojoj od ovih grupa.
+8. **`@AfterGroups`**
+- Lista grupa nakon kojih će se pokrenuti ovaj metod konfiguracije. Ovaj metod će se garantovano izvršiti neposredno nakon poslednje test metode koja pripada bilo kojoj od ovih grupa. 
+9. **`@BeforeMethod`**
+- Anotirana metoda će se izvršiti prije svake test metode.
+10. **`@AfterMethod`**
+- Anotirana metoda će se izvršiti nakon svake test metode.
+11. **`@DataProvider`**
+- Označava metod kao pružaoca podataka za test metodu. Anotirani metod mora vratiti **`Object[][]`**, gdje svaki **`Object[]`** može biti dodijeljen listi parametara test metode. **`@Test`** metoda koja želi da primi podatke od ovog DataProvider-a, treba koristiti ime dataProvider-a koje je jednako imenu ove anotacije.
+12. **`@Factory`**
+- Označava metod kao fabriku, koja vraća objekte koji će biti korišćeni od strane TestNG-a kao test klase. Metod mora vratiti **`Object[]`**.
+13. **`@Listeners`**
+- Definiše slušače (listeners) na test klasi.
+14. **`@Parameters`**
+- Opisuje kako proslijediti parametre do **`@Test`** metode.
+15. **`@Test`**
+- Označava klasu ili metod kao dio testa.
+
+### Benefiti korišćenja antotacija
+
+- TestNG identifikuje metode koje ga zanimaju, traženjem anotacija. Dakle, imena metoda nisu ograničena ni na jedan obrazac ili format
+- Možemo proslijediti dodatne parametre anotacijama
+- Anotacije su 'strongly typed', odnosno kompajler će odmah označiti sve greške
+- Testne klase ne moraju više ništa da proširuju (kao TestCase za JUnit 3)
+
+## FAQ (Česta pitanja)
+
+**Q: Da li je TestNG bolji od JUnit?**  
+A: TestNG i JUnit su dvamoćna alata za testiranje, a izbor između njih često zavisi od specifičnih potreba projekta i ličnih preferencija. TestNG nudi neke napredne mogućnosti koje JUnit možda nema, poput podrške za paralelno izvršavanje testova i fleksibilne konfiguracije testova, što ga čini pogodnim za složenije test scenarije.
+
+**Q: Mogu li koristiti TestNG za automatizaciju UI testova?**  
+A: Da, TestNG se može koristiti za automatizaciju UI testova, posebno u kombinaciji sa alatima kao što su Selenium ili Appium. TestNG pruža snažnu osnovu za upravljanje test slučajevima, grupisanje testova i generisanje izvještaja, što je korisno pri automatizaciji UI testova.
+
+**Q: Gdje mogu pronaći dodatne resurse za učenje TestNG-a?**  
+A: Za dodatne resurse o TestNG-u, možete pogledati [TestNG dokumentaciju](https://www.tutorialspoint.com/testng/index.htm), kao i [TestNG GitHub stranicu](https://github.com/cbeust/testng). Takođe, postoje mnogi tutorijali, blogovi i video materijali dostupni online koji pokrivaju različite aspekte TestNG-a.
+
+## Zaključak
+
+TestNG se pokazao kao moćan alat za testiranje Java aplikacija, pružajući raznolike mogućnosti za automatizaciju testova i poboljšanje efikasnosti razvojnog procesa. Sa svojim bogatim setom funkcionalnosti, fleksibilnošću i moćnim izvještavanjem, TestNG olakšava implementaciju složenih test scenarija i poboljšava kvalitet softvera.  
