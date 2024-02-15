@@ -24,4 +24,4 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 
 **Korak 4 - Verifikacija Maven instalacije**
 - U command prompt-u se ukuca komanda *mvn -version*, i ako se dobije nešto slično ovome na slici ispod, onda je Maven uspješno instaliran.
-![Maven](maven.png)
+![Maven](images/maven.png)
