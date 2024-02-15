@@ -272,6 +272,4 @@ java org.testng.TestNG testng.xml
 ```
 Ako je sve urađeno ispravno, trebalo bi vidjeti rezultate testova u konzoli. Dodatno, TestNG kreira veoma lijep HTML izvještaj u folderu koji se zove test-output, koji se automatski kreira u trenutnom direktorijumu. Ako ga otvorimo i učitatamo index.html, vidjećemo stranicu sličnu onoj na slici ispod:
 
-```html
-<img title="a title" alt="HTML izvjestaj" src="/images/izvjestaj.png">
-```
+![Izvjestaj](izvjestaj.png)
