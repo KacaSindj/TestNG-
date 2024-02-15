@@ -56,65 +56,51 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 **Koark 3 - Preuzeti TestNG Archive**
 - Preuzeti najnoviju verziju TestNG jar datoteke sa http://www.testng.org ili [odavde](https://mvnrepository.com/artifact/org.testng/testng).
 
-**Korak 4 - Podešavanje TestNG okruženja**
-- Podesiti environment varijablu TESTNG_HOME da ukazuje na lokaciju osnovnog direktorijuma, gdje je TestNG smješten na računaru. Npr. za *Windows*, pod pretpostavkom da je testng.jar smješten na lokaciji /work/testng, setujemo varijablu TESTNG_HOME na *C:\testng*.
+**Korak 4 - Podešavanje TestNG okruženja unutar IntelliJ IDEA (bez Maven-a)**
+- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases**. Zatim, unutar File opcije, u gornjem dijelu board-a, kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao Dependencies ubacimo prethodno skinuti testng.jar fajl i po potrebi (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti jcommander.jsr, slf4j-api.jar i slf4j-simple.jar, pa ih takođe dodati u dependencies. 
 
-**Korak 5 - Podešavanje CLASSPATH varijable**
-- Za **Windows** postavljamo CLASSPATH environment varijablu da ukazuje na TestNG jar lokaciju, *%CLASSPATH%;%TESTNG_HOME%\testng-7.4.jar.*
-
-**NAPOMENA:** TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći Maven, bez potrebe za ručnim dodavanjem TestNG jar datoteka. Taj postupak će biti objašnjen u mini tutorijalu za Maven.
-
-**Korak 6 - Testiranje TestNG setup-a**
-- Napraviti java klasu pod nazivom *TestNGSimpleTest* na /work/testng/src.
+**Korak 5 - Testiranje TestNG setup-a i verifikacija rezultata**
+- U prethodno kreiranoj Java klasi, unesemo kod ispod i pokrenemo test.
 
 ```java
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
 
-public class TestNGSimpleTest {
-   @Test
-   public void testAdd() {
-      String str = "TestNG is working fine";
-      AssertEquals("TestNG is working fine", str);
-   }
+public class TestCases {
+
+@Test
+    void setup () {
+        System.out.println("I am inside setup");
+    }
+@Test
+    void testSteps() {
+        System.out.println("I am inside test steps");
+    }
+@Test
+    void tearDown() {
+        System.out.println("I am inside tearDown");
+    }
+
 }
 ```
-TestNG se može pozvati na nekoliko različitih načina :
-
-- Sa testng.xml fajlom
-- Sa ANT
-- Sa komandne linije
-
-U ovom primjeru se poziva putem datoteke testng.xml. Kreiramo xml datoteku testng.xml u /work.testng/src da bi se izvršili test slučajevi.
+Trebalo bi da dobijemo sledeći output:
 
 ```html
-<?xml version = "1.0" encoding = "UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+I am inside setup
+I am inside tearDown
+I am inside test steps
 
-<suite name = "Suite1">
-   <test name = "test1">
-      <classes>
-         <class name = "TestNGSimpleTest"/>
-      </classes>
-   </test>
-</suite>
+===============================================
+Default Suite
+Total tests run: 3, Passes: 3, Failures: 0, Skips: 0
+===============================================
 ```
+**NAPOMENA:** Ako se desi da println stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
 
-**Korak 7 - Verifikacija rezultata**
-- Kompajliramo klasu koristeći javac compiler */work/testng/src$ javac TestNGSimpleTest.java*
-- Pozivamo testng.xml da vidimo rezultat */work/testng/src$ java org.testng.TestNG testng.xml*
-- Verifikacija output-a
+TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći `Maven`, bez potrebe za ručnim dodavanjem TestNG jar datoteka. Postupak će biti objašnjen u narednim koracima:
 
-```html
- ===============================================
-  Suite
-  Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
-  ===============================================
-
-```
 ## Pisanje testova
 
-- Prvo napisati biznis logiku vaših testova i ubaciti TestNG anotacije u kod
+- Prvo napisati biznis logiku naših testova i ubaciti TestNG anotacije u kod
 - Dodati informacije o testovima (npr. ime klase, grupe koje želimo da pokrenemo itd.) u testng.xml ili build.xml fajlu
 - Kompletan primjer TestNG testiranja koristeći POJO (plain old Java object) klasu, Business logic klasu i test xml, koji će pokrenuti TestNG:
 

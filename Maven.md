@@ -12,7 +12,7 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 
 **Životni ciklus izgradnje**: Maven koristi unaprijed definisane životne cikluse izgradnje, (npr. **`clean`**, **`compile`**, **`test`**, **`package`**, **`install`**, **`deploy`**), koji olakšavaju definisanje i razumijevanje procesa izgradnje.
 
-**Plugini i ciljevi**: MAven se oslanje na plugine za izvršavanje zadataka. Svaki plugin može imati više ciljeva koji se mogu izvršiti.
+**Plugini i ciljevi**: Maven se oslanja na plugin-ove za izvršavanje zadataka. Svaki plugin može imati više ciljeva koji se mogu izvršiti.
 
 ## Instalacija i konfiguracija
 
