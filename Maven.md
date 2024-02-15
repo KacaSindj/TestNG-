@@ -19,9 +19,10 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 **Korak 2 - Dodavanje System Environment Variables**
 - U dijelu System variables, klikne se na dugme *New*, kako bi dodali novu `system environment variable`. Ukucamo **MAVEN_HOME** kao ime varijable i dodamo path do Maven direktorijuma.
 
-**Korak 3 - **Dodavanje %MAVEN_HOME%\bin unutar Path-a**
+**Korak 3 - Dodavanje %MAVEN_HOME%\bin unutar Path-a**
 - Klikne se na Path, pa na New dugme i doda se unutar polja *%MAVEN_HOME%\bin*. Sačuva se sve.
 
 **Korak 4 - Verifikacija Maven instalacije**
 - U command prompt-u se ukuca komanda *mvn -version*, i ako se dobije nešto slično ovome na slici ispod, onda je Maven uspješno instaliran.
+
 ![Maven](images/maven.png)
