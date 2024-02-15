@@ -51,16 +51,16 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 - Instalirati Java programa, ako već nije instaliran. Link za instalaciju Java Software Development Kit (SDK): https://www.oracle.com/technetwork/java/javase/downloads/index.h
 
 **Korak 2 - Podešavanje Java okruženja**
-- Podesiti promjenljivu JAVA_HOME da ukazuje na lokaciju osnovnog direktorijuma, gdje je Java instalirana. Npr. za *Windows* podesiti varijablu JAVA_HOME na *C:\Program Files\Java\jdk15.0.2.* Zatim, dodati lokaciju Java kompajlera u sistemsku putanju. Dodati string *C:\Program Files\Java\jdk1.7.0_25\bin* na kraju System Variable, Path-a. Provjeriti instalaciju koristeći komandu *java -version*.
+- Podesiti environment varijablu JAVA_HOME da ukazuje na lokaciju osnovnog direktorijuma, gdje je Java instalirana. Npr. za *Windows* podesiti varijablu JAVA_HOME na *C:\Program Files\Java\jdk15.0.2.* Zatim, dodati lokaciju Java kompajlera u sistemsku putanju. Dodati string *C:\Program Files\Java\jdk1.7.0_25\bin* na kraju System Variable, Path-a. Provjeriti instalaciju koristeći komandu *java -version*.
 
 **Koark 3 - Preuzeti TestNG Archive**
 - Preuzeti najnoviju verziju TestNG jar datoteke sa http://www.testng.org ili [odavde](https://mvnrepository.com/artifact/org.testng/testng).
 
 **Korak 4 - Podešavanje TestNG okruženja**
-- Podesiti promjenljivu TESTNG_HOME da ukazuje na lokaciju osnovnog direktorijuma, gdje je TestNG smješten na računaru. Npr. za *Windows*, pod pretpostavkom da je testng.jar smješten na lokaciji /work/testng, setujemo varijablu TESTNG_HOME na *C:\testng*.
+- Podesiti environment varijablu TESTNG_HOME da ukazuje na lokaciju osnovnog direktorijuma, gdje je TestNG smješten na računaru. Npr. za *Windows*, pod pretpostavkom da je testng.jar smješten na lokaciji /work/testng, setujemo varijablu TESTNG_HOME na *C:\testng*.
 
 **Korak 5 - Podešavanje CLASSPATH varijable**
-- Za **Windows** postavljamo CLASSPATH varijablu da ukazuje na TestNG jar lokaciju, *%CLASSPATH%;%TESTNG_HOME%\testng-7.4.jar.*
+- Za **Windows** postavljamo CLASSPATH environment varijablu da ukazuje na TestNG jar lokaciju, *%CLASSPATH%;%TESTNG_HOME%\testng-7.4.jar.*
 
 **Korak 6 - Testiranje TestNG setup-a**
 - Napraviti java klasu pod nazivom *TestNGSimpleTest* na /work/testng/src.
@@ -114,4 +114,164 @@ U ovom primjeru se poziva putem datoteke testng.xml. Kreiramo xml datoteku testn
 
 - Prvo napisati biznis logiku vaših testova i ubaciti TestNG anotacije u kod
 - Dodati informacije o testovima (npr. ime klase, grupe koje želimo da pokrenemo itd.) u testng.xml ili build.xml fajlu
-- Kompletan primjer TestNG testiranja koristeći POJO (plain old Java object) klasu, Business logic klasu i test xml, koji će pokrenuti TestNG.
+- Kompletan primjer TestNG testiranja koristeći POJO (plain old Java object) klasu, Business logic klasu i test xml, koji će pokrenuti TestNG:
+
+Kreirati **EmployeeDetails.java** u **/work/testng/src**, koja je POJO klasa.
+
+```java
+public class EmployeeDetails {
+
+   private String name;
+   private double monthlySalary;
+   private int age;
+
+   // @return the name
+
+   public String getName() {
+      return name;
+   }
+
+   // @param name the name to set
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   // @return the monthlySalary
+
+   public double getMonthlySalary() {
+      return monthlySalary;
+   }
+
+   // @param monthlySalary the monthlySalary to set
+
+   public void setMonthlySalary(double monthlySalary) {
+      this.monthlySalary = monthlySalary;
+   }
+
+   // @return the age
+
+   public int getAge() {
+      return age;
+   }
+
+   // @param age the age to set
+
+   public void setAge(int age) {
+      this.age = age;
+   }
+}
+```
+**EmployeeDetails klasa** se koristi za:
+
+- dobijanje/podešavanje vrijednosti imena zaposlenog
+- dobijanje/podešavanje vrijednosti mjesečne zarade zaposlenog
+- dobijanje/podešavanje vrijednosti godina zaposlenog
+
+Kreirati **EmpBusinessLogic.java** u **/work/testng/src**, koja sadrži biznis logiku.
+
+```java
+public class EmpBusinessLogic {
+
+   // Calculate the yearly salary of employee
+   public double calculateYearlySalary(EmployeeDetails employeeDetails) {
+      double yearlySalary = 0;
+      yearlySalary = employeeDetails.getMonthlySalary() * 12;
+      return yearlySalary;
+   }
+
+   // Calculate the appraisal amount of employee
+   public double calculateAppraisal(EmployeeDetails employeeDetails) {
+
+      double appraisal = 0;
+
+      if(employeeDetails.getMonthlySalary() < 10000) {
+         appraisal = 500;
+
+      } else {
+         appraisal = 1000;
+      }
+
+      return appraisal;
+   }
+}
+```
+**EmpBusinessLogic** klasa se koristi za izračunavanje:
+ - godišnje zarade zaposlenog
+ - iznosa povećanja plate zaposlenog
+
+Sada, kreiramo TestNG klasu **TestEmployeeDetails.java** u  /work/testng/src. TestNG klasa je Java klasa koja sadrži barem jednu TestNG anotaciju. Ova klasa sadrži test slučajeve koji treba da budu testirani. TestNG test može biti konfigurisan pomoću @BeforeXXX i @AfterXXX anotacija, što omogućava izvršenje određene Java logike pre i posle određene tačke.
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class TestEmployeeDetails {
+   EmpBusinessLogic empBusinessLogic = new EmpBusinessLogic();
+   EmployeeDetails employee = new EmployeeDetails();
+
+   @Test
+   public void testCalculateAppriasal() {
+
+      employee.setName("Rajeev");
+      employee.setAge(25);
+      employee.setMonthlySalary(8000);
+
+      double appraisal = empBusinessLogic.calculateAppraisal(employee);
+      Assert.assertEquals(500, appraisal, 0.0, "500");
+   }
+
+   // Test to check yearly salary
+   @Test
+   public void testCalculateYearlySalary() {
+
+      employee.setName("Rajeev");
+      employee.setAge(25);
+      employee.setMonthlySalary(8000);
+
+      double salary = empBusinessLogic.calculateYearlySalary(employee);
+      Assert.assertEquals(96000, salary, 0.0, "8000");
+   }
+}
+```
+Klasa **TestEmployeeDetails** se koristi za testiranje metoda klase **EmpBusinessLogic**. Ona radi sledeće:
+
+- Testira godišnju platu zaposlenog
+- Testira iznos povećanja plate zaposlenog
+
+Prije nego što možemo pokrenuti testove, moramo konfigurisati TestNG koristeći poseban XML fajl, koji se obično naziva testng.xml. Sintaksa za ovaj fajl je veoma jednostavna, a sadržaj je prikazan ispod. Kreirati ovaj fajl u **/work/testng/src** direktorijumu.
+
+```html
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite1">
+   <test name = "test1">
+      <classes>
+         <class name = "TestEmployeeDetails"/>
+      </classes>
+   </test>
+</suite>
+```
+Detalji gore navedenog fajla su:
+
+- Jedinica testiranja je predstavljena jednim XML fajlom. Može sadržati jedan ili više testova i definiše se pomoću taga <suite>.
+- Tag <test> predstavlja jedan test i može da sadrži jednu ili više TestNG klasa.
+- Tag <class> predstavlja TestNG klasu. To je Java klasa koja sadrži barem jednu TestNG anotaciju. Može da sadrži jednu ili više metoda za testiranje.
+
+Da bi kompajlirali klase za testiranje koristeći **'javac'**, koristimo komandu:
+
+```java
+/work/testng/src$ javac EmployeeDetails.java EmpBusinessLogic.java TestEmployeeDetails.java
+```
+
+Sada, pokrenemo TestNG pomoću sledeće komande, navodeći putanju do našeg **'testng.xml'** fajla:
+
+```java
+java org.testng.TestNG testng.xml
+```
+Ako je sve urađeno ispravno, trebalo bi vidjeti rezultate testova u konzoli. Dodatno, TestNG kreira veoma lijep HTML izvještaj u folderu koji se zove test-output, koji se automatski kreira u trenutnom direktorijumu. Ako ga otvorimo i učitatamo index.html, vidjećemo stranicu sličnu onoj na slici ispod:
+
+```html
+<img title="a title" alt="HTML izvjestaj" src="/images/izvjestaj.png">
+```
