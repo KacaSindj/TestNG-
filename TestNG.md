@@ -62,6 +62,8 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 **Korak 5 - Podešavanje CLASSPATH varijable**
 - Za **Windows** postavljamo CLASSPATH environment varijablu da ukazuje na TestNG jar lokaciju, *%CLASSPATH%;%TESTNG_HOME%\testng-7.4.jar.*
 
+**NAPOMENA:** TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći Maven, bez potrebe za ručnim dodavanjem TestNG jar datoteka. Taj postupak će biti objašnjen u mini tutorijalu za Maven.
+
 **Korak 6 - Testiranje TestNG setup-a**
 - Napraviti java klasu pod nazivom *TestNGSimpleTest* na /work/testng/src.
 
