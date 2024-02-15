@@ -7,8 +7,11 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 ### Ključne karakteristike
 
 **Upravljanje zavisnostima**: Maven automatski preuzima potrebne biblioteke i plugine za naš projekat iz centralnog repozitorijuma. To znači da ne moramo ručno preuzimati i dodavati jar datoteke u naš projekat.
+
 **Konvencija nad konfiguracijom**: Maven projekyi slijede standardnu strukturu direktorijuma i formatiranje konfiguracijskih datoteka, što olakšava razumijevanje i upravljanje projektima, čak iako nismo njihov originalni autor.
+
 **Životni ciklus izgradnje**: Maven koristi unaprijed definisane životne cikluse izgradnje, (npr. **`clean`**, **`compile`**, **`test`**, **`package`**, **`install`**, **`deploy`**), koji olakšavaju definisanje i razumijevanje procesa izgradnje.
+
 **Plugini i ciljevi**: MAven se oslanje na plugine za izvršavanje zadataka. Svaki plugin može imati više ciljeva koji se mogu izvršiti.
 
 ## Instalacija i konfiguracija
