@@ -60,7 +60,7 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 - Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases**. Zatim, unutar File opcije, u gornjem dijelu board-a, kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao Dependencies ubacimo prethodno skinuti testng.jar fajl i po potrebi (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti jcommander.jsr, slf4j-api.jar i slf4j-simple.jar, pa ih takođe dodati u dependencies. 
 
 **Korak 5 - Testiranje TestNG setup-a i verifikacija rezultata**
-- U prethodno kreiranoj Java klasi, unesemo kod ispod i pokrenemo test.
+- U prethodno kreiranoj Java klasi, unesemo kod ispod i pokrenemo test za klasu TestCases. (desni klik na @Test i `Run TestCases`)
 
 ```java
 import org.testng.annotations.Test;
@@ -95,6 +95,22 @@ Total tests run: 3, Passes: 3, Failures: 0, Skips: 0
 ===============================================
 ```
 **NAPOMENA:** Ako se desi da println stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
+
+**Korak 6 - Edit Configuration**
+- U menu-ju idemo na opciju `Run`, gdje biramo tab Edit Configuration i  na znak `+` dodamo TestNG. Ispod je slika kako bi tyrebalo popuniti konfiguraciju:
+
+![Konfiguracija](images/RunTestNG.png)
+
+Klikne se na Apply, pa OK. Sada, kada pritisnemo desni klik, imamo opciju **Run as TestNG**, a to nam je omogućeno zahvaljujući TestNG plugin-u koji je dodat u naš IntelliJ. 
+
+**Korak 7 - Reports**
+- U menu-ju idemo na opciju `Run`, pa opet biramo tab Edit Configuration, spuštamo se do dijela gdje su `Listeners` i na znak `+` dodamo report kao sa slike ispod:
+
+![Listeners](images/reports.png)
+
+Kliknemo na Apply i OK, pa opet pokrenemo **Run as TestNG**. Sa lijeve strane, u fajlovima će se prikazati html fajl (emailable-report.html), gdje je smješten report (unutar test-output foldera), a on otprilike zgleda ovako kada se otvori:
+
+![Report](images/reports2.png)
 
 TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći `Maven`, bez potrebe za ručnim dodavanjem TestNG jar datoteka. Postupak će biti objašnjen u narednim koracima:
 
