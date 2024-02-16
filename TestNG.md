@@ -340,7 +340,7 @@ Anotacije su formalno dodate u Java jezik, a TestNG je izabrao da koristi anotac
 - Anotirana metoda će se izvršiti prije nego što se izvrši bilo koja test metoda koja pripada klasama unutar taga **`<test>`**.
 - Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
 6. **`@AfterTest`**
-- Anotirana metoda će se izvršiti nakon što se sve test metode koje pripadaju klasama unutar taga `**<test>**` izvrše.
+- Anotirana metoda će se izvršiti nakon što se sve test metode koje pripadaju klasama unutar taga **`<test>`** izvrše.
 7. **`@BeforeGroups`**
 - Lista grupa koje će ovaj metod konfiguracije pokrenuti ranije. Ovaj metod će se garantovano izvršiti neposredno prije prvog poziva test metode koja pripada bilo kojoj od ovih grupa.
 8. **`@AfterGroups`**
