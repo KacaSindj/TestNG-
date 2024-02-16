@@ -57,10 +57,10 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 - Preuzeti najnoviju verziju TestNG jar datoteke sa http://www.testng.org ili [odavde](https://mvnrepository.com/artifact/org.testng/testng).
 
 **Korak 4 - Podešavanje TestNG okruženja unutar IntelliJ IDEA (bez Maven-a)**
-- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases**. Zatim, unutar File opcije, u gornjem dijelu menu-a, kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti testng.jar fajl i po potrebi, (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti jcommander.jsr, slf4j-api.jar i slf4j-simple.jar, pa ih takođe dodati u dependencies. 
+- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases** unutar foldera *test/java*. Zatim, u gornjem dijelu menu-a odemo na `File` i kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti testng.jar fajl. Po potrebi, (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti jcommander.jsr, slf4j-api.jar i slf4j-simple.jar, pa ih takođe dodati u dependencies. 
 
 **Korak 5 - Testiranje TestNG setup-a i verifikacija rezultata**
-- U prethodno kreiranoj Java klasi, unesemo kod ispod i pokrenemo test za klasu TestCases. (desni klik na @Test, pa na `Run TestCases`)
+- U prethodno kreiranoj Java klasi, unesemo kod ispod. Ovaj dio `@Test`, što je unutar Java koda, dodajemo nakon što ispišemo println, čim mi dodamo `@`, pojaviće nam se `Test` na koji kliknemo. Zatim, pokrenemo test za klasu TestCases (desni klik na @Test, pa na `Run TestCases`). 
 
 ```java
 import org.testng.annotations.Test;
@@ -97,18 +97,18 @@ Total tests run: 3, Passes: 3, Failures: 0, Skips: 0
 **NAPOMENA:** Ako se desi da println stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
 
 **Korak 6 - Edit Configuration**
-- U menu-ju idemo na opciju `Run`, gdje biramo tab Edit Configuration i  na znak `+` dodamo TestNG. Ispod je slika kako bi trebalo popuniti konfiguraciju:
+- U menu-ju idemo na opciju `Run`, gdje biramo tab `Edit Configuration` i  na znak `+` dodamo TestNG. Ispod je slika kako bi trebalo popuniti konfiguraciju:
 
 ![Konfiguracija](images/RunTestNG.png)
 
-Klikne se na Apply, pa OK. Sada, kada pritisnemo desni klik unutar editora gdje nam je kod, imamo opciju **Run as TestNG**, a to nam je omogućeno zahvaljujući TestNG plugin-u koji je dodat u naš IntelliJ. 
+Klikne se na **Apply**, pa **OK**. Sada, kada pritisnemo desni klik unutar editora gdje nam je kod, imamo opciju **Run as TestNG**, a to nam je omogućeno zahvaljujući TestNG plugin-u koji je dodat u naš IntelliJ. 
 
 **Korak 7 - Reports**
-- U menu-ju idemo na opciju `Run`, pa opet biramo tab Edit Configuration, spuštamo se do dijela gdje su `Listeners` i na znak `+` dodamo report kao sa slike ispod:
+- U menu-ju idemo na opciju `Run`, pa opet biramo tab `Edit Configuration`, spuštamo se do dijela gdje su `Listeners` i na znak `+` dodamo report kao sa slike ispod:
 
 ![Listeners](images/reports.png)
 
-Kliknemo na Apply i OK, pa opet pokrenemo **Run as TestNG** u editoru. Sa lijeve strane, u fajlovima će se prikazati html fajl (emailable-report.html), gdje je smješten report (unutar test-output foldera), a on otprilike zgleda ovako kada se otvori:
+Kliknemo na **Apply** i **OK**, pa opet pokrenemo **Run as TestNG** u editoru. Sa lijeve strane, u fajlovima će se prikazati html fajl (*emailable-report.html*), gdje je smješten report (unutar test-output foldera), a on otprilike zgleda ovako kada se otvori:
 
 ![Report](images/reports2.png)
 
@@ -116,7 +116,23 @@ TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći `Maven`, be
 
 ## Dodavanje TestNG-a koristeći Maven
 
-- 
+- Prvi korak jeste dodati `Maven`, a kratko uputstvo za to se nalazi u fajlu *Maven.md*. Sledeći korak je pravljenje novog projekta u IntelliJ. Na slici ispod su detalji koje treba popuniti:
+
+![MavenTestNG](images/maven_start.png)
+
+- Sada, u menu-ju gore odemo na stavku `Code`, pa kliknemo na `Generate`, gdje će se otvoriti prozor u kojem biramo `Dependency`. Ptretražimo *testng* i kliknemo na `Add`. To bi ovako trebalo da izgleda:
+
+![TestNGAdd](images/addtestng.png)
+
+U dijelu gdje je struktuta projekta, jasno se vidi folder Dependencies i Maven unutar External Libraries.
+
+![Dependencies](images/dependencies.png)
+
+Kada se odradi sve to, na isti način kao i prije, kreira se java klasa i pokrene se test. Isti je proces i za dobijanje krajnjeg izvještaja.
+
+## Kreiranje testng.xml
+
+
 
 
 ## Pisanje testova
