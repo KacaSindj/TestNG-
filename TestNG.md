@@ -152,7 +152,7 @@ Kada se to završi, unutar testng.xml fajla ubaciti ovaj kod, koji kada pokrenem
 ```
 Dakle, zaključak može biti sljedeći:
 
-- Kreiranje testng.xml fajla omogućava veću fleksibilnost u konfiguraciji testova. Možemo lako definisati različite suite-ove, grupisati testove, postaviti prioritete izvršavanja, konfigurisati listenere i sl. Ovo je korisno ako nam je potrebna napredna kontrola nad izvršavanjem testova.
+- Kreiranje *testng.xml* fajla omogućava veću fleksibilnost u konfiguraciji testova. Možemo lako definisati različite suite-ove, grupisati testove, postaviti prioritete izvršavanja, konfigurisati listenere i sl. Ovo je korisno ako nam je potrebna napredna kontrola nad izvršavanjem testova.
 
 - Integracija TestNG-a putem Maven-a, omogućava automatsko upravljanje zavisnostima i izgradnjom projekta. Ovo je korisno u kontinuiranoj integraciji (CI) i kontinuiranoj isporuci (CD) okruženjima, gdje je potrebno automatizovati procese izgradnje, testiranja i isporuke.
 
