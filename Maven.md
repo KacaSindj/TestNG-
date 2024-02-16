@@ -1,18 +1,18 @@
 ## Uvod u Maven
 
-Maven je moćan alat za upravljanje projektima, koji se zasniva na POM (project object model). Koristi se za kreiranje projekata, zavisnosti i dokumentaciju.
+Maven je moćan alat za upravljanje projektima, koji se zasniva na POM (project object model). Koristi se za kreiranje projekata, zavisnosti i dokumentacije.
 
 Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant je više kao `build tool`, a Maven se ponaša kao alat za upravljanje projektima.
 
 ### Ključne karakteristike
 
-**Upravljanje zavisnostima**: Maven automatski preuzima potrebne biblioteke i plugine za naš projekat iz centralnog repozitorijuma. To znači da ne moramo ručno preuzimati i dodavati jar datoteke u naš projekat.
+**Upravljanje zavisnostima**: Maven automatski preuzima potrebne biblioteke i plugin-ove za naš projekat iz centralnog repozitorijuma. To znači da ne moramo ručno preuzimati i dodavati `jar` datoteke u naš projekat.
 
-**Konvencija nad konfiguracijom**: Maven projekyi slijede standardnu strukturu direktorijuma i formatiranje konfiguracijskih datoteka, što olakšava razumijevanje i upravljanje projektima, čak iako nismo njihov originalni autor.
+**Konvencija nad konfiguracijom**: Maven projekti slijede standardnu strukturu direktorijuma i formatiranje konfiguracijskih datoteka, što olakšava razumijevanje i upravljanje projektima, čak iako nismo njihov originalni autor.
 
 **Životni ciklus izgradnje**: Maven koristi unaprijed definisane životne cikluse izgradnje, (npr. **`clean`**, **`compile`**, **`test`**, **`package`**, **`install`**, **`deploy`**), koji olakšavaju definisanje i razumijevanje procesa izgradnje.
 
-**Plugini i ciljevi**: Maven se oslanja na plugin-ove za izvršavanje zadataka. Svaki plugin može imati više ciljeva koji se mogu izvršiti.
+**Pluginovi i ciljevi**: Maven se oslanja na plugin-ove za izvršavanje zadataka. Svaki plugin može imati više ciljeva koji se mogu izvršiti.
 
 ## Instalacija i konfiguracija
 
