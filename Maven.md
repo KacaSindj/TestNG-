@@ -30,3 +30,6 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 
 ![Maven](images/maven.png)
 
+## Zaključak
+
+Unutar mini tutorijala za TestNG, opisano je kako se kreira Maven projekat. Takođe, pokazano je na koji način se izbjegava manuelni proces preuzimanja svih potrebnih paketa koje želimo da ubacimo u naš projekat, jer Maven zapravo služi kao *build tool*, koji će to raditi umjesto nas.
