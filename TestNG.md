@@ -124,7 +124,7 @@ TestNG je moguće dodati i kao zavisnost u naš projekat, koristeći `Maven`, be
 
 ![TestNGAdd](images/addtestng.png)
 
-U dijelu gdje je struktuta projekta, jasno se vidi folder Dependencies i Maven unutar External Libraries.
+U dijelu gdje je struktura projekta, jasno se vidi folder Dependencies i Maven unutar External Libraries.
 
 ![Dependencies](images/dependencies.png)
 
@@ -132,8 +132,33 @@ Kada se odradi sve to, na isti način kao i prije, kreira se java klasa i pokren
 
 ## Kreiranje testng.xml
 
+- U menu-ju pronaći `Settings` i u dijelu `Plugins` pretražiti **Create TestNG XML** plugin, zatim ga instalirati. Zatim se vratiti na projekat, desni klik na folder sa projektom i pokrenuti komandu `Creat TestNG XML `. Fajl će se pojaviti unutar projekta. (*testng.xml*)
 
+![XML](images/XMLcreate.png)
 
+Kada se to završi, unutar testng.xml fajla ubaciti ovaj kod, koji kada pokrenemo (kliknemo na testng.xml fajl i `Run`), daje isti rezultat kao i kada smo u prethodnim primjerima radili `Run as TestNG`.
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="Test">
+
+        <classes>
+            <class name="TestCases"></class>
+        </classes>
+    </test>
+</suite>
+```
+Dakle, zaključak može biti sljedeći:
+
+- Kreiranje testng.xml fajla omogućava veću fleksibilnost u konfiguraciji testova. Možemo lako definisati različite suite-ove, grupisati testove, postaviti prioritete izvršavanja, konfigurisati listenere i sl. Ovo je korisno ako nam je potrebna napredna kontrola nad izvršavanjem testova.
+
+- Integracija TestNG-a putem Maven-a, omogućava automatsko upravljanje zavisnostima i izgradnjom projekta. Ovo je korisno u kontinuiranoj integraciji (CI) i kontinuiranoj isporuci (CD) okruženjima, gdje je potrebno automatizovati procese izgradnje, testiranja i isporuke.
+
+- Dodavanje TestNG-a putem Maven-a može biti jednostavniji početni korak, posebno za početnike ili manje iskusne developere. Maven automatski rješava zavisnosti, što olakšava početak rada sa TestNG-om.
+
+- Korišćenje testng.xml fajla omogućava veću portabilnost projekta, jer možemo lako prenijeti konfiguraciju testova između različitih razvojnih okruženja ili čak između različitih alata za izgradnju i testiranje.
 
 ## Pisanje testova
 
