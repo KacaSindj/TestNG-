@@ -29,3 +29,4 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 - U command prompt-u se ukuca komanda *mvn -version*, i ako se dobije nešto slično ovome na slici ispod, onda je Maven uspješno instaliran.
 
 ![Maven](images/maven.png)
+
