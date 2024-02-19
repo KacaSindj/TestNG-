@@ -329,36 +329,36 @@ Ako je sve urađeno ispravno, trebalo bi vidjeti rezultate testova u konzoli. Do
 Anotacije su formalno dodate u Java jezik, a TestNG je izabrao da koristi anotacije za označavanje test klasa. Lista anotacija koje TestNG podržava:
 
 1. **`@BeforeSuite`**
-- Anotirana metoda će se izvršiti samo jednom prije nego što se izvrše svi testovi u ovom setu.
+Anotirana metoda će se izvršiti samo jednom prije nego što se izvrše svi testovi u ovom setu.
 2. **`@AfterSuite`**
-- Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
+Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
 3. **`@BeforeClass`**
-- Anotirana metoda će se izvršiti samo jednom prije nego što se prva test metoda u trenutnoj klasi pozove.
+Anotirana metoda će se izvršiti samo jednom prije nego što se prva test metoda u trenutnoj klasi pozove.
 4. **`@AfterClass`**
-- Anotirana metoda će se izvršiti samo jednom nakon što se sve test metode u trenutnoj klasi izvrše.
+Anotirana metoda će se izvršiti samo jednom nakon što se sve test metode u trenutnoj klasi izvrše.
 5. **`@BeforeTest`**
-- Anotirana metoda će se izvršiti prije nego što se izvrši bilo koja test metoda koja pripada klasama unutar taga **`<test>`**.
-- Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
+Anotirana metoda će se izvršiti prije nego što se izvrši bilo koja test metoda koja pripada klasama unutar taga **`<test>`**.
+Anotirana metoda će se izvršiti samo jednom nakon što se izvrše svi testovi u ovom setu.
 6. **`@AfterTest`**
-- Anotirana metoda će se izvršiti nakon što se sve test metode koje pripadaju klasama unutar taga **`<test>`** izvrše.
+Anotirana metoda će se izvršiti nakon što se sve test metode koje pripadaju klasama unutar taga **`<test>`** izvrše.
 7. **`@BeforeGroups`**
-- Lista grupa koje će ovaj metod konfiguracije pokrenuti ranije. Ovaj metod će se garantovano izvršiti neposredno prije prvog poziva test metode koja pripada bilo kojoj od ovih grupa.
+Lista grupa koje će ovaj metod konfiguracije pokrenuti ranije. Ovaj metod će se garantovano izvršiti neposredno prije prvog poziva test metode koja pripada bilo kojoj od ovih grupa.
 8. **`@AfterGroups`**
-- Lista grupa nakon kojih će se pokrenuti ovaj metod konfiguracije. Ovaj metod će se garantovano izvršiti neposredno nakon poslednje test metode koja pripada bilo kojoj od ovih grupa. 
+Lista grupa nakon kojih će se pokrenuti ovaj metod konfiguracije. Ovaj metod će se garantovano izvršiti neposredno nakon poslednje test metode koja pripada bilo kojoj od ovih grupa. 
 9. **`@BeforeMethod`**
-- Anotirana metoda će se izvršiti prije svake test metode.
+Anotirana metoda će se izvršiti prije svake test metode.
 10. **`@AfterMethod`**
-- Anotirana metoda će se izvršiti nakon svake test metode.
+Anotirana metoda će se izvršiti nakon svake test metode.
 11. **`@DataProvider`**
-- Označava metod kao pružaoca podataka za test metodu. Anotirani metod mora vratiti **`Object[][]`**, gdje svaki **`Object[]`** može biti dodijeljen listi parametara test metode. **`@Test`** metoda koja želi da primi podatke od ovog DataProvider-a, treba koristiti ime dataProvider-a koje je jednako imenu ove anotacije.
+Označava metod kao pružaoca podataka za test metodu. Anotirani metod mora vratiti **`Object[][]`**, gdje svaki **`Object[]`** može biti dodijeljen listi parametara test metode. **`@Test`** metoda koja želi da primi podatke od ovog DataProvider-a, treba koristiti ime dataProvider-a koje je jednako imenu ove anotacije.
 12. **`@Factory`**
-- Označava metod kao fabriku, koja vraća objekte koji će biti korišćeni od strane TestNG-a kao test klase. Metod mora vratiti **`Object[]`**.
+Označava metod kao fabriku, koja vraća objekte koji će biti korišćeni od strane TestNG-a kao test klase. Metod mora vratiti **`Object[]`**.
 13. **`@Listeners`**
-- Definiše slušače (listeners) na test klasi.
+Definiše slušače (listeners) na test klasi.
 14. **`@Parameters`**
-- Opisuje kako proslijediti parametre do **`@Test`** metode.
+Opisuje kako proslijediti parametre do **`@Test`** metode.
 15. **`@Test`**
-- Označava klasu ili metod kao dio testa.
+Označava klasu ili metod kao dio testa.
 
 ### Benefiti korišćenja antotacija
 
