@@ -57,10 +57,10 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 - Preuzeti najnoviju verziju TestNG jar datoteke sa http://www.testng.org ili [odavde](https://mvnrepository.com/artifact/org.testng/testng).
 
 **Korak 4 - Podešavanje TestNG okruženja unutar IntelliJ IDEA (bez Maven-a)**
-- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases** unutar foldera *test/java*. Zatim, u gornjem dijelu menu-a odemo na `File` i kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti testng.jar fajl. Po potrebi, (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti jcommander.jsr, slf4j-api.jar i slf4j-simple.jar, pa ih takođe dodati u dependencies. 
+- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases** unutar foldera *test/java*. Zatim, u gornjem dijelu menu-a odemo na `File` i kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti testng.jar fajl. Po potrebi, (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti *jcommander.jsr*, *slf4j-api.jar* i *slf4j-simple.jar*, pa ih takođe dodati u dependencies. 
 
 **Korak 5 - Testiranje TestNG setup-a i verifikacija rezultata**
-- U prethodno kreiranoj Java klasi, unesemo kod ispod. Ovaj dio `@Test`, što je unutar Java koda, dodajemo nakon što ispišemo println, čim mi dodamo `@`, pojaviće nam se `Test` na koji kliknemo. Zatim, pokrenemo test za klasu TestCases (desni klik na @Test, pa na `Run TestCases`). 
+- U prethodno kreiranoj Java klasi, unesemo kod ispod. Ovaj dio `@Test`, što je unutar Java koda, dodajemo nakon što ispišemo *println*, čim mi dodamo `@`, pojaviće nam se `Test` na koji kliknemo. Zatim, pokrenemo test za klasu TestCases (desni klik na @Test, pa na `Run TestCases`). 
 
 ```java
 import org.testng.annotations.Test;
@@ -94,7 +94,7 @@ Default Suite
 Total tests run: 3, Passes: 3, Failures: 0, Skips: 0
 ===============================================
 ```
-**NAPOMENA:** Ako se desi da println stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
+**NAPOMENA:** Ako se desi da *println* stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
 
 **Korak 6 - Edit Configuration**
 - U menu-ju idemo na opciju `Run`, gdje biramo tab `Edit Configuration` i  na znak `+` dodamo TestNG. Ispod je slika kako bi trebalo popuniti konfiguraciju:
@@ -250,7 +250,7 @@ public class EmpBusinessLogic {
  - godišnje zarade zaposlenog
  - iznosa povećanja plate zaposlenog
 
-Sada, kreiramo TestNG klasu **TestEmployeeDetails.java** u  /work/testng/src. TestNG klasa je Java klasa koja sadrži barem jednu TestNG anotaciju. Ova klasa sadrži test slučajeve koji treba da budu testirani. TestNG test može biti konfigurisan pomoću @BeforeXXX i @AfterXXX anotacija, što omogućava izvršenje određene Java logike pre i posle određene tačke.
+Sada, kreiramo TestNG klasu **TestEmployeeDetails.java** u  /work/testng/src. TestNG klasa je Java klasa koja sadrži barem jednu TestNG anotaciju. Ova klasa sadrži test slučajeve koji treba da budu testirani. TestNG test može biti konfigurisan pomoću @BeforeXXX i @AfterXXX anotacija, što omogućava izvršenje određene Java logike prije i posle određene tačke.
 
 ```java
 import org.testng.Assert;
@@ -305,9 +305,9 @@ Prije nego što možemo pokrenuti testove, moramo konfigurisati TestNG koristeć
 ```
 Detalji gore navedenog fajla su:
 
-- Jedinica testiranja je predstavljena jednim XML fajlom. Može sadržati jedan ili više testova i definiše se pomoću taga <suite>.
-- Tag <test> predstavlja jedan test i može da sadrži jednu ili više TestNG klasa.
-- Tag <class> predstavlja TestNG klasu. To je Java klasa koja sadrži barem jednu TestNG anotaciju. Može da sadrži jednu ili više metoda za testiranje.
+- Jedinica testiranja je predstavljena jednim XML fajlom. Može sadržati jedan ili više testova i definiše se pomoću taga `<suite>`.
+- Tag `<test>` predstavlja jedan test i može da sadrži jednu ili više TestNG klasa.
+- Tag `<class>` predstavlja TestNG klasu. To je Java klasa koja sadrži barem jednu TestNG anotaciju. Može da sadrži jednu ili više metoda za testiranje.
 
 Da bi kompajlirali klase za testiranje koristeći **`javac`**, koristimo komandu:
 
