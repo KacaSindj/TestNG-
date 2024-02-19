@@ -57,10 +57,12 @@ Ovaj primjer jednostavno pokazuje, da metoda **goToHomepage()** treba da se izvr
 - Preuzeti najnoviju verziju TestNG jar datoteke sa http://www.testng.org ili [odavde](https://mvnrepository.com/artifact/org.testng/testng).
 
 **Korak 4 - Podešavanje TestNG okruženja unutar IntelliJ IDEA (bez Maven-a)**
-- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases** unutar foldera *test/java*. Zatim, u gornjem dijelu menu-a odemo na `File` i kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti testng.jar fajl. Po potrebi, (prilikom pokretanja testova će doći obavještenje) sa Maven repozitorijuma skinuti *jcommander.jsr*, *slf4j-api.jar* i *slf4j-simple.jar*, pa ih takođe dodati u dependencies. 
+- Prvo kreiramo JAVA projekat i zatim Java klasu, npr. pod nazivom **TestCases** unutar foldera *src*. Zatim, u gornjem dijelu menu-a odemo na `File` i kliknemo na `Project Structures`. Odaberemo opciju `Modules` sa lijeve strane i kao `Dependencies` ubacimo prethodno skinuti *testng.jar* fajl. Prilikom pokretanja testova, u konzoli će doći obavještenje da se sa Maven repozitorijuma preuzme *jcommander.jsr*, *slf4j-api.jar* i *slf4j-simple.jar*, pa ih takođe dodati u dependencies. 
 
 **Korak 5 - Testiranje TestNG setup-a i verifikacija rezultata**
-- U prethodno kreiranoj Java klasi, unesemo kod ispod. Ovaj dio `@Test`, što je unutar Java koda, dodajemo nakon što ispišemo *println*, čim mi dodamo `@`, pojaviće nam se `Test` na koji kliknemo. Zatim, pokrenemo test za klasu TestCases (desni klik na @Test, pa na `Run TestCases`). 
+- U prethodno kreiranoj Java klasi, unesemo kod ispod. Ovaj dio `@Test`, što je unutar Java koda, dodajemo nakon što ispišemo *println*, čim mi dodamo `@`, pojaviće nam se `Test` na koji kliknemo. Zatim, pokrenemo test za klasu TestCases (desni klik na zeleni krug pored klase, pa na `Run TestCases`). 
+
+Kod koji dodajemo u fajl:
 
 ```java
 import org.testng.annotations.Test;
@@ -82,7 +84,11 @@ public class TestCases {
 
 }
 ```
-Trebalo bi da dobijemo sledeći output:
+Komanda koju pokrećemo `Run TestCases`, trenutno je pod nazivom `Run as TestNG` i biće objašnjeno u narednom koraku kako se dolazi do te promjene. Trenutno je poenta da se klikne na `Run`. Evo kako bi to izgledalo:
+
+![Listeners](images/RunTestNG2.png)
+
+Kada pokrenemo komandu, trebalo bi da dobijemo sledeći output:
 
 ```html
 I am inside setup
@@ -94,6 +100,7 @@ Default Suite
 Total tests run: 3, Passes: 3, Failures: 0, Skips: 0
 ===============================================
 ```
+
 **NAPOMENA:** Ako se desi da *println* stvara neke greške, otići na File opciju, pa na Invalidate Caches i restartovati sistem. Sve greške će nestati.
 
 **Korak 6 - Edit Configuration**
