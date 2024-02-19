@@ -289,7 +289,7 @@ Klasa **TestEmployeeDetails** se koristi za testiranje metoda klase **EmpBusines
 - Testira godišnju platu zaposlenog
 - Testira iznos povećanja plate zaposlenog
 
-Prije nego što možemo pokrenuti testove, moramo konfigurisati TestNG koristeći poseban XML fajl, koji se obično naziva testng.xml. Sintaksa za ovaj fajl je veoma jednostavna, a sadržaj je prikazan ispod. Kreirati ovaj fajl u **/work/testng/src** direktorijumu.
+Prije nego što možemo pokrenuti testove, moramo konfigurisati TestNG koristeći poseban XML fajl, koji se obično naziva testng.xml. Sintaksa za ovaj fajl je veoma jednostavna, a sadržaj je prikazan ispod. Dakle, kada napravimo gore pomenute java klase, neophodno je da dodamo TestNG na neki od dva načina koji su opisani u tekstu.
 
 ```html
 <?xml version = "1.0" encoding = "UTF-8"?>
@@ -309,20 +309,9 @@ Detalji gore navedenog fajla su:
 - Tag `<test>` predstavlja jedan test i može da sadrži jednu ili više TestNG klasa.
 - Tag `<class>` predstavlja TestNG klasu. To je Java klasa koja sadrži barem jednu TestNG anotaciju. Može da sadrži jednu ili više metoda za testiranje.
 
-Da bi kompajlirali klase za testiranje koristeći **`javac`**, koristimo komandu:
+ Kada smo odradili sve neophodne korake za dodavanje TestNG-a, kliknemo na opisanu komandu `Run as TestNG`. Ako je sve urađeno ispravno, naredni korak bi mogao biti dodavanje `.xml` fajla i dobijanje reporta. Izvještaj bi izgledao otprilike ovako: 
 
-```java
-/work/testng/src$ javac EmployeeDetails.java EmpBusinessLogic.java TestEmployeeDetails.java
-```
-
-Sada, pokrenemo TestNG pomoću sledeće komande, navodeći putanju do našeg **`testng.xml`** fajla:
-
-```java
-java org.testng.TestNG testng.xml
-```
-Ako je sve urađeno ispravno, trebalo bi vidjeti rezultate testova u konzoli. Dodatno, TestNG kreira veoma lijep HTML izvještaj u folderu koji se zove test-output, koji se automatski kreira u trenutnom direktorijumu. Ako ga otvorimo i učitatamo index.html, vidjećemo stranicu sličnu onoj na slici ispod:
-
-![Izvjestaj](images/izvjestaj.png)
+![Izvjestaj](images/Report.png)
 
 ## Osnovne anotacije
 
