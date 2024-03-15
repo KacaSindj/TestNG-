@@ -17,7 +17,7 @@ Pojednostavljuje proces izgradnje kao ANT, ali je dosta napredniji od njega. Ant
 ## Instalacija i konfiguracija
 
 **Korak 1 - Download**
-- Preuzimanje odgovarajućeg fajla sa ovog [linka](https://maven.apache.org/download.cgi).
+- Preuzimanje odgovarajućeg fajla sa ovog [linka](https://maven.apache.org/download.cgi). Preuzeti zip bin fajl.
 
 **Korak 2 - Dodavanje System Environment Variables**
 - U dijelu System variables, klikne se na dugme *New*, kako bi dodali novu `system environment variable`. Ukucamo **MAVEN_HOME** kao ime varijable i dodamo path do Maven direktorijuma.
